@@ -17,7 +17,6 @@ public class UserService {
 
     public String addUser(User user){
         iUserRepo.save(user);
-
         return "User added :) !";
     }
 
@@ -34,20 +33,17 @@ public class UserService {
         if (user == null) {
             return "User not found :( !";
         }
-
         user.setAddress(address);
         return "User address updated :) !";
     }
 
     public String addListOfUsers(List<User> users){
         iUserRepo.saveAll(users);
-
         return "Users are Added :) !";
     }
 
     public String deleteUserById(Integer id){
         iUserRepo.deleteById(id);
-
         return "User Removed !";
     }
 }

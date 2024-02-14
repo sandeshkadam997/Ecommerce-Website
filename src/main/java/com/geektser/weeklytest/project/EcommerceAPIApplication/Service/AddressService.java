@@ -15,18 +15,18 @@ public class AddressService {
 
     public String addAddress(Address address){
         iAddressRepo.save(address);
-        return "Address added :) !";
+        return "Address added successfully:) !";
     }
 
     public List<Address> getAddresses(){
-        return (List<Address>) iAddressRepo.findAll();
+        return  iAddressRepo.findAll();
     }
 
     public Optional<Address> getAddress(Integer id){
         return iAddressRepo.findById(id);
     }
 
-    public String addListOfUsers(List<Address> addresses){
+    public String addListOfUsers (List<Address> addresses){
         iAddressRepo.saveAll(addresses);
         return "Addresses Added :) !";
     }

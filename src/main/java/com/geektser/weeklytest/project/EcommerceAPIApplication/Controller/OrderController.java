@@ -10,10 +10,10 @@ import java.util.Optional;
 
 @RestController
 public class OrderController {
+	
     @Autowired
     OrderService orderService;
 
-    //Post
     @PostMapping("order")
     public String placeAnOrder(@RequestBody Orders orders)
     {
@@ -25,6 +25,7 @@ public class OrderController {
     {
         return orderService.getAllOrders();
     }
+    
     @GetMapping("Order/{id}")
     public Optional<Orders> getOrderById(@PathVariable Integer id)
     {

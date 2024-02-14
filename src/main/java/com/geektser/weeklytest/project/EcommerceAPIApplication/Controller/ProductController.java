@@ -11,10 +11,10 @@ import java.util.Optional;
 
 @RestController
 public class ProductController {
+	
     @Autowired
     ProductService productService;
 
-    //Post
     @PostMapping("product")
     public String addAProduct(@RequestBody Product product)
     {
@@ -22,10 +22,11 @@ public class ProductController {
     }
 
     @PostMapping("products")
-    public String addListOfProducts(@RequestBody List<Product> products) {return productService.addListOfProducts(products);}
+    public String addListOfProducts(@RequestBody List<Product> products) {
+    	return productService.addListOfProducts(products);
+    	}
 
-
-    @GetMapping("product/{Id}")
+   @GetMapping("product/{Id}")
     public Optional<Product> getProduct(@PathVariable Integer Id)
     {
         return productService.getProduct(Id);
@@ -36,11 +37,13 @@ public class ProductController {
     {
         return productService.getProducts();
     }
+    
     @GetMapping("products/{category}")
     public List<Product> getProductsByCategory(@PathVariable ProductCategory category)
     {
         return productService.getProductByCategory(category);
     }
+    
     @DeleteMapping("product/{id}")
     public String deleteProductById(@PathVariable Integer id)
     {
